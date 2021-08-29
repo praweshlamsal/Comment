@@ -10,8 +10,8 @@ const CustomInput = ({ maxwidth, fontSize }) => {
         e.persist();
         let fontSize = parseInt(window.getComputedStyle(e.target).fontSize.slice(0, -2))
         let length = e.target.value.length ? (e.target.value.length + 1) * 11 : 50;
-        let line = Math.round(length / maxwidth);
-        let settingHeight = (fontSize * 1.2) * (line + 1);
+        let line = Math.round(length / (maxwidth));
+        let settingHeight = ((fontSize + 8) * (line + 1));
         if (line > 0) {
             setCusWidth(maxwidth);
         }
