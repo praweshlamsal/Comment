@@ -3,24 +3,22 @@ import React, { InputHTMLAttributes, KeyboardEventHandler, useState } from 'reac
 
 const CustomInput = () => {
     // const [cusHeight, setCusHeight] = useState(1)
-    const [cusHeight, setCusHeight] = useState("20px")
+    const [cusHeight, setCusHeight] = useState("15px")
     const [cusWidth, setCusWidth] = useState("50px")
     const [value, setValue] = useState("")
 
     const inputKeyDown = (e) => {
         e.persist();
-        let length = ((e.target.value.length + 4) * 10);
-        console.log()
+        let length = ((e.target.value.length + 3) * 10);
         if (length <= 200) {
             setCusWidth(length + "px");
-            console.log((parseInt(length / 210) + 1) * 60 + "px")
         }
-        setCusHeight((parseInt(length / 200) + 1) * 15 + "px")
+        setCusHeight((parseInt(length / 195) + 1) * 15 + "px")
         if (e.key == "Enter") {
             alert("Click")
         }
         if (e.key == "Backspace" || e.key == "Delete") {
-            setCusHeight(parseInt(length / 210 + "") + 1)
+            setCusHeight((parseInt(length / 195) + 1) * 15 + "px")
         }
 
     }
