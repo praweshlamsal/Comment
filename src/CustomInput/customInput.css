@@ -17,4 +17,7 @@
     width: auto;
     overflow-y: auto;
     border-radius: 10px 10px 10px 2px;
+    word-wrap: break-word;
+    white-space: normal;
+    word-break: keep-all
   }
