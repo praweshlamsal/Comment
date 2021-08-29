@@ -19,7 +19,10 @@ code {
   justify-content: center;
   align-items: center;
 }
-
+.custom_width {
+  display: flex;
+  justify-content: start;
+}
 .custom_text_area:focus-visible{
   outline: none;
 }
