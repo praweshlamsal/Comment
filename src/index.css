@@ -31,4 +31,5 @@ code {
   width: auto;
   overflow: hidden;
   border-radius: 10px 10px 10px 2px;
+  transition: .25s all;
 }
