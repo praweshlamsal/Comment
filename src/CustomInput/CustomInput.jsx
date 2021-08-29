@@ -15,13 +15,15 @@ const CustomInput = ({ maxwidth, fontSize }) => {
         console.log(line, settingHeight);
         if (length <= (maxwidth + 5)) {
             setCusWidth(length + (fontSize / 3) + "px");
+            setCusHeight(line ? settingHeight + "px" : fontSize + 8 + "px")
         }
-        setCusHeight(line ? settingHeight + "px" : fontSize + 8 + "px")
+        else {
+            setCusHeight(line ? settingHeight + "px" : fontSize + 8 + "px")
+        }
         if (e.key == "Enter") {
             alert("Click")
         }
         if (e.key == "Backspace" || e.key == "Delete") {
-            setCusHeight(line ? settingHeight + "px" : fontSize + 8 + "px")
             if (e.target.value.length == 1) {
                 setCusWidth("50px");
                 setCusHeight(line ? settingHeight + "px" : fontSize + 8 + "px")
