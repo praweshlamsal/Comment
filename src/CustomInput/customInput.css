@@ -18,4 +18,5 @@
     overflow-y: auto;
     border-radius: 10px 10px 10px 2px;
     transition: .25s all;
+    line-height: 25px;
   }

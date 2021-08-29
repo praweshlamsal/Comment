@@ -6,19 +6,45 @@ const CustomInput = ({ maxwidth, fontSize }) => {
     const [cusHeight, setCusHeight] = useState(fontSize + 8 + "px")
     const [cusWidth, setCusWidth] = useState("50px")
 
-    const inputKeyDown = (e) => {
+    const onKeyChange = (e) => {
         e.persist();
         let fontSize = parseInt(window.getComputedStyle(e.target).fontSize.slice(0, -2))
-        let length = ((e.target.value.length + 4) * 10);
+        let length = e.target.value.length ? (e.target.value.length + 1) * 11 : 50;
+        let line = parseInt(length / maxwidth);
+        let settingHeight = (fontSize + 8) * (line + 1);
+        console.log(line, settingHeight);
         if (length <= (maxwidth + 5)) {
-            setCusWidth(length + (fontSize / 2) + "px");
+            setCusWidth(length + (fontSize / 3) + "px");
         }
-        setCusHeight((parseInt(length / maxwidth) + 1) * 25 + fontSize + "px")
+        setCusHeight(line ? settingHeight + "px" : fontSize + 8 + "px")
         if (e.key == "Enter") {
             alert("Click")
         }
         if (e.key == "Backspace" || e.key == "Delete") {
-            setCusHeight((parseInt(length / maxwidth) + 1) * 25 + fontSize + "px")
+            setCusHeight(line ? settingHeight + "px" : fontSize + 8 + "px")
+            if (e.target.value.length == 1) {
+                setCusWidth("50px");
+                setCusHeight(line ? settingHeight + "px" : fontSize + 8 + "px")
+            }
+            if (e.target.value == "") {
+                setCusHeight(fontSize + 8 + "px")
+            }
+        }
+
+    }
+
+
+    const onKeyPressing = (e) => {
+        let fontSize = parseInt(window.getComputedStyle(e.target).fontSize.slice(0, -2))
+        let length = ((e.target.value.length + 6) * 10);
+        let line = parseInt(length / maxwidth);
+        let settingHeight = (fontSize + 8) * (line + 1);
+        if (e.key == "Backspace" || e.key == "Delete") {
+            setCusHeight(line ? settingHeight + "px" : fontSize + 8 + "px")
+            if (e.target.value.length == 1) {
+                setCusWidth("50px");
+                setCusHeight(line ? settingHeight + "px" : fontSize + 8 + "px")
+            }
             if (e.target.value == "") {
                 setCusHeight(fontSize + 8 + "px")
             }
@@ -27,10 +53,13 @@ const CustomInput = ({ maxwidth, fontSize }) => {
 
 
 
+
+
+
     return (
         <div className="custom_wrapper">
             <FormGroup className="custom_width" style={{ width: (maxwidth + 5) + "px" }}>
-                <Input style={{ width: cusWidth, height: cusHeight, fontSize: fontSize + "px" }} onKeyDown={inputKeyDown} className="custom_text_area" type="textarea" name="email" id="exampleEmail" placeholder="..." />
+                <Input style={{ width: cusWidth, height: cusHeight, fontSize: fontSize + "px" }} onKeyDown={onKeyPressing} onChange={onKeyChange} className="custom_text_area" type="textarea" name="email" id="exampleEmail" placeholder="..." />
             </FormGroup>
 
         </div>
