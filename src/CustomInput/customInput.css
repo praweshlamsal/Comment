@@ -1,0 +1,21 @@
+.custom_wrapper{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .custom_width {
+    display: flex;
+    justify-content: start;
+  }
+  .custom_text_area:focus-visible{
+    outline: none;
+  }
+  .custom_text_area{
+    resize: none;
+    width: auto;
+    overflow-y: auto;
+    border-radius: 10px 10px 10px 2px;
+    transition: .25s all;
+  }
