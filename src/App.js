@@ -5,7 +5,7 @@ import CustomInput from './CustomInput/CustomInput';
 function App() {
   return (
     <div className="App">
-      <CustomInput height={15} maxwidth={200} />
+      <CustomInput fontSize={20} maxwidth={200} />
     </div>
   );
 }
